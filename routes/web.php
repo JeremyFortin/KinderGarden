@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\NurseryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,37 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+//Nursery
+Route::get('/', 'App\Http\Controllers\NurseryController@index')->name('List_Nursery');
+Route::get('/garderies', 'App\Http\Controllers\NurseryController@index')->name('List_Nursery');
+Route::get('/garderies/{id}/edit', 'App\Http\Controllers\NurseryController@formModifyNursery')->name('Form_Modify_Nursery');
+Route::post('/garderies/add', 'App\Http\Controllers\NurseryController@add')->name('Add_Nursery');
+Route::put('/garderies/{id}/update', 'App\Http\Controllers\NurseryController@update')->name('Modify_Nursery');
+Route::delete('/garderies/{id}/delete', 'App\Http\Controllers\NurseryController@delete')->name('Delete_Nursery');
+Route::delete('/garderies/clear', 'App\Http\Controllers\NurseryController@clear')->name('Clear_List_Nursery');
+//commerce
+Route::get('/', 'App\Http\Controllers\CommerceController@index')->name('List_Commerce');
+Route::get('/commerce', 'App\Http\Controllers\CommerceController@index')->name('List_Commerce');
+Route::get('/commerce/{id}/edit', 'App\Http\Controllers\CommerceController@formModifyCommerce')->name('Form_Modify_Commerce');
+Route::post('/commerce/add', 'App\Http\Controllers\CommerceController@add')->name('Add_Commerce');
+Route::put('/commerce/{id}/update', 'App\Http\Controllers\CommerceController@update')->name('Modify_Commerce');
+Route::delete('/commerce/{id}/delete', 'App\Http\Controllers\CommerceController@delete')->name('Delete_Commerce');
+Route::delete('/commerce/clear', 'App\Http\Controllers\CommerceController@clear')->name('Clear_List_Commerce');
+
+//Expense
+Route::get('/', 'App\Http\Controllers\ExpenseController@index')->name('List_Expense');
+Route::get('/depense', 'App\Http\Controllers\ExpenseController@index')->name('List_Expense');
+Route::get('/depense/{id}/edit', 'App\Http\Controllers\ExpenseController@formModifyExpense')->name('Form_Modify_Expense');
+Route::post('/depense/add', 'App\Http\Controllers\ExpenseController@add')->name('Add_Expense');
+Route::put('/depense/{id}/update', 'App\Http\Controllers\ExpenseController@update')->name('Modify_Expense');
+Route::delete('/depense/{id}/delete', 'App\Http\Controllers\ExpenseController@delete')->name('Delete_Expense');
+Route::delete('/depense/clear', 'App\Http\Controllers\ExpenseController@clear')->name('Clear_List_Expense');
+//categoryExpense
+Route::get('/', 'App\Http\Controllers\CategoryExpenseController@index')->name('List_CategoryExpense');
+Route::get('/CategoryExpense', 'App\Http\Controllers\CategoryExpenseController@index')->name('List_CategoryExpense');
+Route::get('/categoryExpense/{id}/edit', 'App\Http\Controllers\CategoryExpenseController@formModifyCategoryExpense')->name('Form_Modify_CategoryExpense');
+Route::post('/CategoryExpense/add', 'App\Http\Controllers\CategoryExpenseController@add')->name('Add_CategoryExpense');
+Route::put('/categoryExpense/{id}/update', 'App\Http\Controllers\CategoryExpenseController@update')->name('Modify_CategoryExpense');
+Route::delete('/CategoryExpense/{id}/delete', 'App\Http\Controllers\CategoryExpenseController@delete')->name('Delete_CategoryExpense');
+Route::delete('/CategoryExpense/clear', 'App\Http\Controllers\CategoryExpenseController@clear')->name('Clear_List_CategoryExpense');
