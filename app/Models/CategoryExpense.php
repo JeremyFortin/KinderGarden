@@ -11,13 +11,8 @@ class CategoryExpense extends Model
 
     public $timestamps = false;
 
-    protected $table = 'categoriesdepense';
+    protected $table = 'categories_expense';
 
 
     protected $fillable = ["description", "pourcentage"];
-
-    public function expense()
-    {
-        return $this->belongsTo(Expense::class, "category_expense_id");
-    }
 }

@@ -18,7 +18,7 @@ class Expense extends Model
     {
         return $this->belongsTo(Nursery::class);
     }
-    public function categorieDepense()
+    public function CategoryExpense()
     {
         return $this->belongsTo(CategoryExpense::class);
     }
